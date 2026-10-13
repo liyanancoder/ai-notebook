@@ -62,17 +62,21 @@ Skill其实是一个方案，颗粒度比MCP或Function call 大
 一个skill通常是由YAML 元数据 和 Markdown 正文组成
 1. YAML 元数据 (Metadata)：
 模型的「索引卡片」：定义技能的核心身份信息，帮助模型快速判断当前对话场景是否需要激活并调用该 Skill。
+```
 ---
 name: pdf-processing
 description: 提取 PDF 文本、合并拆分文档，用户处理 PDF 时调用。
 license: MIT
 ---
+```
 2. Markdown 正文 (Body)
 模型的「工作指南」：提供详尽的任务执行逻辑、上下文约束与操作细节，指导模型在调用后如何高质量地完成具体任务。
+```
 # 技能核心说明文档
 ## 适用的具体业务场景 (When to Use)
 ## 详细的任务执行步骤 (How to Do)
 ## 关键的边界注意事项 (Attention)
+```
 
 ## 六、渐进式披露：Skill 的省 Token 秘诀
 与Prompt相比
