@@ -248,4 +248,5 @@ BM25 相似度越高，评分就越高。向量是欧式距离表示，越小相
 5. 混合检索
 实际开发中，先以向量检索为主，如果效果不好，可以引入混合检索，一般全文检索权重是0.7。
 后续还有问题，可以考虑GraphRAG 、PageIndex、Wiki
+
   ![naive_rag](../resources/learning/naive_rag/image4.png)
