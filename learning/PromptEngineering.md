@@ -2,20 +2,20 @@
 ### 1. Prompt Engineering 提示词工程：
 提示词工程已经出现很久了，它的使用逻辑是用户写一段话，这段话就是提示词，发送给大模型，大模型就会给我们输出结果。
 提示词工程我们一般考虑的是单轮生成，就是用户发送提示词给大模型，大模型生成结果的过程。下一次还需要再拿提示词生成结果。
-![prompt_engineering](resources/learning/prompt_engineering/image1.png)
+![prompt_engineering](../resources/learning/prompt_engineering/image1.png)
 
 ### 2. Context Engineering 上下文工程
 在上下文工程当中，发给大模型的就不只是这一个提示词，它还可以有解决当前这个问题相关的其他内容，这个其他内容可以包括很多内容，比如历史对话。比如问完一句还可以接着问下一句，下一句问完的时候还可以把上面问过的问题，包括大模型的回复，随着最新的问题全都一起发送给大模型。
 上下文还有有目标、背景信息、参考资料、示例、约束条件、历史对话等，还可以有RAG检索知识库中文档块。
 所以可以理解为上下文工程解决的是提示词工程单轮对话只能提供少量的提示词信息给大模型，导致大模型生成的结果不是很完整。这样大模型就可以根据所有内容得出更准确结果。
-![alt text](resources/learning/prompt_engineering/image2.png)
+![alt text](../resources/learning/prompt_engineering/image2.png)
 
 ### 3. Harness Engineering 驾驭工程
 Harness Engineering 驾驭工程在很多的一些框架里面，比如Langchain、LangGraph或者DeepSeek 也是用Agent = Harness + LLM 公式定义的。
 Deepseek agent = LLM  + Harness Engineering，都是插件，一切皆插件。
 我们构造一个智能体，除了大模型以外，其他的都可以认为是harness
 大致可以这样理解，在编排层，我在去构造这个智能体的时候，我们里面可能会涉及到一些工具，当然这个就跟智能体有关系啊，还有可能会有一些技能，可能还会有一些知识库管理、数据库管理，可能会有一些流程控制，或者说我可能会有一些工作流的编排，那其他的还有比如说文件系统，可能还会有代码执行，我可能还有一些沙箱管理（用来做上下文隔离），可能还会有一些权限的管理，那这些其实你都可以理解成都是属于Harness需要去负责的。
-![alt text](resources/learning/prompt_engineering/image3.png)
+![alt text](../resources/learning/prompt_engineering/image3.png)
 
 ### 4. Loop Engineering 循环工程
 指的是我要去解决个问题，我只需要设定我的目标，然后我只需要设定我最终的评估标准，然后让他自己去执行，然后自己去按照我的评估标准去评估，如果说有问题自己去反思，然后自己去解决，然后进入下一次循环，直到达到我的评估标准为止。
@@ -23,10 +23,10 @@ Deepseek agent = LLM  + Harness Engineering，都是插件，一切皆插件。
 因为第1个，你要让他自己去做，你要控制好它的边界，那会不会说他进入死循环
 第2个，就是这个loop工程，它的可控性确实没有Harness这么好，我们用Harness的时候，工具、技能、数据库各方面我可以自己去把控，但是你用loop的时候，它的token消耗是非常高的，所以在企业实际落地的时候， loop工程其实相对来说少一些，那我们的智能体是不是没有循环呢？
 不是，也是有的。智能体上会有一些策略，比如说像ReAct我们叫做行动观察和评估。也会去走循环，但这个循环是相对来说是比较可控的。
-![alt text](resources/learning/prompt_engineering/image4.png)
+![alt text](../resources/learning/prompt_engineering/image4.png)
 
 ### 演进总结：
-![alt text](resources/learning/prompt_engineering/image5.png)
+![alt text](../resources/learning/prompt_engineering/image5.png)
 
 ## 二、提示工程认知对齐
 ### 1. 什么是提示词
@@ -122,7 +122,7 @@ Prompt 角色定义
  ToT是一种扩展版CoT方法，旨在解决复杂、多路径的决策问题，尤其是那些需要探索多种可能性、权衡不同选项、需要进行全局优化的任务。适用于高度复杂的决策问题，数学证明、编程调试、多路径决策，缺点：实现复杂，计算开销极大，对模型能力要求高。
 
  #### 零样本/少样本 vs CoT vs 自我一致性 vs ToT
- ![alt text](resources/learning/prompt_engineering/image6.png)
+ ![alt text](../resources/learning/prompt_engineering/image6.png)
 
 ### 6、反思机制（Self-Reflection）
 反思机制指的是在给AI的提示词中，明确要求AI在给出最终答案之后，先对自己的思考过程、推理步骤或潜在假设进行中审视和检查，模仿人类的“三思而后行”，反思机制=初步输出 + 自我审查 + 优化结果，同时会响应时间增加，计算成本更高。
